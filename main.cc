@@ -26,10 +26,7 @@ int main(int, char**)
         vm.move_cursor();
     }
     */
-
-    
-
-    
+   
     return 0;
 }
 
