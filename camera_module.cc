@@ -2,7 +2,7 @@
 #include <iostream>
 
 // NOTE: Only works with 2 ?
-#define EXTERNAL_CAMERA_MAGIC_NUM 2
+#define EXTERNAL_CAMERA_MAGIC_NUM -1
 // NOTE: UPPER LEFT CORNER OF TAG IS FIRST POINT@F OF VECTOR
 #define MARKER_UPPER_LEFT 0
 // NOTE: LEFT FINGER IS ID:0
@@ -10,6 +10,13 @@
 // NOTE: RIGHT FINGER is ID:1
 #define RIGHT_FINGER 1
 #define TESTING 1 
+
+// NOTE: calibration camera matrix is always 3x3
+#define CAMERA_MATRIX_ROWS 3
+#define CAMERA_MATRIX_COLS 3
+// NOTE: calibration distortion matrix is always 1xX  
+#define DISTORTION_MATRIX_ROWS 1
+#define DISTORTION_MATRIX_COLS 5
 
 
 camera_module::camera_module(){
@@ -27,6 +34,41 @@ void camera_module::generate_markers(int size){
     cv::imwrite("first marker.png", markerImage);
     cv::aruco::drawMarker(dictionary, 1, size, markerImage, 1);
     cv::imwrite("second marker.png", markerImage);
+}
+
+void camera_module::read_camera_calibration_values(){
+    cv::String calibration_file_path = "../camera_calibration/out_camera_data.xml";
+    cv::FileStorage fs;
+    fs.open(calibration_file_path, cv::FileStorage::READ);
+    if(!fs.isOpened()){
+        std::cout << "file: " << calibration_file_path << " doesn't exist, build and execute camera_calibration.cc as specified" << std::endl;
+    }
+
+    cv::FileNode cm_data = fs["camera_matrix"]["data"];
+    cv::FileNodeIterator it = cm_data.begin(), it_end = cm_data.end(); 
+    std::vector<float> cm_data_store = {};
+    for (it; it != it_end; ++it){
+        float to_add = *it;
+        cm_data_store.push_back(to_add);
+    }
+    cv::Mat camera_matrix_temp = cv::Mat(CAMERA_MATRIX_ROWS, CAMERA_MATRIX_COLS, CV_32F, cm_data_store.data());
+    camera_module::camera_matrix = camera_matrix_temp;
+
+    cv::FileNode dm_data = fs["distortion_coefficients"]["data"];
+    it = dm_data.begin(); it_end = dm_data.end();
+    std::vector<float> dm_data_store = {};
+    for(it; it != it_end; ++it){
+        float to_add = *it;
+        dm_data_store.push_back(to_add);
+    }
+    cv::Mat distortion_matrix_temp = cv::Mat(DISTORTION_MATRIX_ROWS, dm_data_store.size(), CV_32F, dm_data_store.data());
+    camera_module::distortion_matrix = distortion_matrix_temp;
+    
+    fs.release();
+}
+
+void camera_module::calibrate_camera(){
+    camera_module::read_camera_calibration_values();
 }
 
 void camera_module::display_detected_markers(){
@@ -103,3 +145,4 @@ int camera_module::get_right_finger_y(){
     camera_module::get_marker_corners_val(RIGHT_FINGER, MARKER_UPPER_LEFT, camera_module::right_finger_coordinate);
     return camera_module::right_finger_coordinate.y;
 }
+

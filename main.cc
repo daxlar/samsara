@@ -11,8 +11,6 @@ int main(int, char**)
     mouse_module mouse;
     camera_module camera;
 
-    camera.generate_markers(150);
-    
     while(1){
         //camera.display_detected_markers();
         camera.read_marker_corners();
@@ -26,7 +24,12 @@ int main(int, char**)
         vm.move_cursor();
     }
     */
-   
+
+    camera_module cm;
+    std::cout << "calibrating" << std::endl;
+    cm.calibrate_camera();
+    
+
     return 0;
 }
 

@@ -1,4 +1,4 @@
-# Install script for directory: /home/allen/samsara
+# Install script for directory: /home/allen/github_repos/samsara
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -45,5 +45,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/allen/samsara/build/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/allen/github_repos/samsara/build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

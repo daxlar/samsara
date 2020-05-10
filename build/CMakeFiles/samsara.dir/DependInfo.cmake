@@ -4,10 +4,10 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/allen/samsara/camera_module.cc" "/home/allen/samsara/build/CMakeFiles/samsara.dir/camera_module.cc.o"
-  "/home/allen/samsara/main.cc" "/home/allen/samsara/build/CMakeFiles/samsara.dir/main.cc.o"
-  "/home/allen/samsara/mouse_module.cc" "/home/allen/samsara/build/CMakeFiles/samsara.dir/mouse_module.cc.o"
-  "/home/allen/samsara/virtual_mouse.cc" "/home/allen/samsara/build/CMakeFiles/samsara.dir/virtual_mouse.cc.o"
+  "/home/allen/github_repos/samsara/camera_module.cc" "/home/allen/github_repos/samsara/build/CMakeFiles/samsara.dir/camera_module.cc.o"
+  "/home/allen/github_repos/samsara/main.cc" "/home/allen/github_repos/samsara/build/CMakeFiles/samsara.dir/main.cc.o"
+  "/home/allen/github_repos/samsara/mouse_module.cc" "/home/allen/github_repos/samsara/build/CMakeFiles/samsara.dir/mouse_module.cc.o"
+  "/home/allen/github_repos/samsara/virtual_mouse.cc" "/home/allen/github_repos/samsara/build/CMakeFiles/samsara.dir/virtual_mouse.cc.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/allen/samsara
+CMAKE_SOURCE_DIR = /home/allen/github_repos/samsara
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/allen/samsara/build
+CMAKE_BINARY_DIR = /home/allen/github_repos/samsara/build
 
 # Include any dependencies generated for this target.
 include CMakeFiles/samsara.dir/depend.make
@@ -59,16 +59,16 @@ include CMakeFiles/samsara.dir/flags.make
 
 CMakeFiles/samsara.dir/main.cc.o: CMakeFiles/samsara.dir/flags.make
 CMakeFiles/samsara.dir/main.cc.o: ../main.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/allen/samsara/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/samsara.dir/main.cc.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/samsara.dir/main.cc.o -c /home/allen/samsara/main.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/allen/github_repos/samsara/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/samsara.dir/main.cc.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/samsara.dir/main.cc.o -c /home/allen/github_repos/samsara/main.cc
 
 CMakeFiles/samsara.dir/main.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/samsara.dir/main.cc.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/allen/samsara/main.cc > CMakeFiles/samsara.dir/main.cc.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/allen/github_repos/samsara/main.cc > CMakeFiles/samsara.dir/main.cc.i
 
 CMakeFiles/samsara.dir/main.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/samsara.dir/main.cc.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/allen/samsara/main.cc -o CMakeFiles/samsara.dir/main.cc.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/allen/github_repos/samsara/main.cc -o CMakeFiles/samsara.dir/main.cc.s
 
 CMakeFiles/samsara.dir/main.cc.o.requires:
 
@@ -83,16 +83,16 @@ CMakeFiles/samsara.dir/main.cc.o.provides.build: CMakeFiles/samsara.dir/main.cc.
 
 CMakeFiles/samsara.dir/mouse_module.cc.o: CMakeFiles/samsara.dir/flags.make
 CMakeFiles/samsara.dir/mouse_module.cc.o: ../mouse_module.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/allen/samsara/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/samsara.dir/mouse_module.cc.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/samsara.dir/mouse_module.cc.o -c /home/allen/samsara/mouse_module.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/allen/github_repos/samsara/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/samsara.dir/mouse_module.cc.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/samsara.dir/mouse_module.cc.o -c /home/allen/github_repos/samsara/mouse_module.cc
 
 CMakeFiles/samsara.dir/mouse_module.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/samsara.dir/mouse_module.cc.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/allen/samsara/mouse_module.cc > CMakeFiles/samsara.dir/mouse_module.cc.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/allen/github_repos/samsara/mouse_module.cc > CMakeFiles/samsara.dir/mouse_module.cc.i
 
 CMakeFiles/samsara.dir/mouse_module.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/samsara.dir/mouse_module.cc.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/allen/samsara/mouse_module.cc -o CMakeFiles/samsara.dir/mouse_module.cc.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/allen/github_repos/samsara/mouse_module.cc -o CMakeFiles/samsara.dir/mouse_module.cc.s
 
 CMakeFiles/samsara.dir/mouse_module.cc.o.requires:
 
@@ -107,16 +107,16 @@ CMakeFiles/samsara.dir/mouse_module.cc.o.provides.build: CMakeFiles/samsara.dir/
 
 CMakeFiles/samsara.dir/camera_module.cc.o: CMakeFiles/samsara.dir/flags.make
 CMakeFiles/samsara.dir/camera_module.cc.o: ../camera_module.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/allen/samsara/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/samsara.dir/camera_module.cc.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/samsara.dir/camera_module.cc.o -c /home/allen/samsara/camera_module.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/allen/github_repos/samsara/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/samsara.dir/camera_module.cc.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/samsara.dir/camera_module.cc.o -c /home/allen/github_repos/samsara/camera_module.cc
 
 CMakeFiles/samsara.dir/camera_module.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/samsara.dir/camera_module.cc.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/allen/samsara/camera_module.cc > CMakeFiles/samsara.dir/camera_module.cc.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/allen/github_repos/samsara/camera_module.cc > CMakeFiles/samsara.dir/camera_module.cc.i
 
 CMakeFiles/samsara.dir/camera_module.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/samsara.dir/camera_module.cc.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/allen/samsara/camera_module.cc -o CMakeFiles/samsara.dir/camera_module.cc.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/allen/github_repos/samsara/camera_module.cc -o CMakeFiles/samsara.dir/camera_module.cc.s
 
 CMakeFiles/samsara.dir/camera_module.cc.o.requires:
 
@@ -131,16 +131,16 @@ CMakeFiles/samsara.dir/camera_module.cc.o.provides.build: CMakeFiles/samsara.dir
 
 CMakeFiles/samsara.dir/virtual_mouse.cc.o: CMakeFiles/samsara.dir/flags.make
 CMakeFiles/samsara.dir/virtual_mouse.cc.o: ../virtual_mouse.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/allen/samsara/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/samsara.dir/virtual_mouse.cc.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/samsara.dir/virtual_mouse.cc.o -c /home/allen/samsara/virtual_mouse.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/allen/github_repos/samsara/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/samsara.dir/virtual_mouse.cc.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/samsara.dir/virtual_mouse.cc.o -c /home/allen/github_repos/samsara/virtual_mouse.cc
 
 CMakeFiles/samsara.dir/virtual_mouse.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/samsara.dir/virtual_mouse.cc.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/allen/samsara/virtual_mouse.cc > CMakeFiles/samsara.dir/virtual_mouse.cc.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/allen/github_repos/samsara/virtual_mouse.cc > CMakeFiles/samsara.dir/virtual_mouse.cc.i
 
 CMakeFiles/samsara.dir/virtual_mouse.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/samsara.dir/virtual_mouse.cc.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/allen/samsara/virtual_mouse.cc -o CMakeFiles/samsara.dir/virtual_mouse.cc.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/allen/github_repos/samsara/virtual_mouse.cc -o CMakeFiles/samsara.dir/virtual_mouse.cc.s
 
 CMakeFiles/samsara.dir/virtual_mouse.cc.o.requires:
 
@@ -219,7 +219,7 @@ samsara: /usr/local/lib/libopencv_photo.so.4.3.0
 samsara: /usr/local/lib/libopencv_imgproc.so.4.3.0
 samsara: /usr/local/lib/libopencv_core.so.4.3.0
 samsara: CMakeFiles/samsara.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/allen/samsara/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX executable samsara"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/allen/github_repos/samsara/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX executable samsara"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/samsara.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -239,6 +239,6 @@ CMakeFiles/samsara.dir/clean:
 .PHONY : CMakeFiles/samsara.dir/clean
 
 CMakeFiles/samsara.dir/depend:
-	cd /home/allen/samsara/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/allen/samsara /home/allen/samsara /home/allen/samsara/build /home/allen/samsara/build /home/allen/samsara/build/CMakeFiles/samsara.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/allen/github_repos/samsara/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/allen/github_repos/samsara /home/allen/github_repos/samsara /home/allen/github_repos/samsara/build /home/allen/github_repos/samsara/build /home/allen/github_repos/samsara/build/CMakeFiles/samsara.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/samsara.dir/depend
 

@@ -6,6 +6,8 @@ class camera_module{
     private:
         cv::VideoCapture inputVideo;
         cv::Mat image;
+        cv::Mat camera_matrix;
+        cv::Mat distortion_matrix;
         cv::Ptr<cv::aruco::Dictionary> dictionary;
         std::vector<int> marker_ids;
         std::vector<std::vector<cv::Point2f>> marker_corners;
@@ -13,9 +15,11 @@ class camera_module{
         cv::Point2f right_finger_coordinate;
         bool testing;
         void get_marker_corners_val(int marker_num, int corner, cv::Point2f& coordinate_point);
+        void read_camera_calibration_values();
     public:
         camera_module();
         void generate_markers(int size);
+        void calibrate_camera();
         void display_detected_markers();
         void read_marker_corners();
         void read_marker_ids();
