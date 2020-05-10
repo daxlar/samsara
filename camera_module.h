@@ -11,6 +11,8 @@ class camera_module{
         cv::Ptr<cv::aruco::Dictionary> dictionary;
         std::vector<int> marker_ids;
         std::vector<std::vector<cv::Point2f>> marker_corners;
+        std::vector<cv::Vec3d> translation_vector;
+        std::vector<cv::Vec3d> rotation_vector;
         cv::Point2f left_finger_coordinate;
         cv::Point2f right_finger_coordinate;
         bool testing;
@@ -19,10 +21,10 @@ class camera_module{
     public:
         camera_module();
         void generate_markers(int size);
-        void calibrate_camera();
+        void detect_marker_corners_ids();
+        void detect_pose();
         void display_detected_markers();
-        void read_marker_corners();
-        void read_marker_ids();
+        void display_pose_extraction();
         int get_marker_corners_size();
         int get_marker_ids_size();
         int get_left_finger_x();

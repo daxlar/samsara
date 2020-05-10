@@ -2,21 +2,21 @@
 #include <iostream>
 
 // NOTE: Only works with 2 ?
-#define EXTERNAL_CAMERA_MAGIC_NUM -1
+#define EXTERNAL_CAMERA_MAGIC_NUM 2
 // NOTE: UPPER LEFT CORNER OF TAG IS FIRST POINT@F OF VECTOR
 #define MARKER_UPPER_LEFT 0
 // NOTE: LEFT FINGER IS ID:0
 #define LEFT_FINGER 0
 // NOTE: RIGHT FINGER is ID:1
 #define RIGHT_FINGER 1
-#define TESTING 1 
+#define MARKER_TESTING 0
+#define POSE_TESTING 1
 
 // NOTE: calibration camera matrix is always 3x3
 #define CAMERA_MATRIX_ROWS 3
 #define CAMERA_MATRIX_COLS 3
 // NOTE: calibration distortion matrix is always 1xX  
-#define DISTORTION_MATRIX_ROWS 1
-#define DISTORTION_MATRIX_COLS 5
+#define DISTORTION_MATRIX_COLS 1
 
 
 camera_module::camera_module(){
@@ -25,6 +25,9 @@ camera_module::camera_module(){
         std::cout << "Error opening video stream or file" << std::endl;
     }
     dictionary = cv::aruco::getPredefinedDictionary(cv::aruco::DICT_4X4_50);
+    read_camera_calibration_values();
+    std::cout << "distortion: " << camera_module::distortion_matrix << std::endl;
+    std::cout << "camera: " << camera_module::camera_matrix << std::endl;
 }
 
 void camera_module::generate_markers(int size){
@@ -43,7 +46,7 @@ void camera_module::read_camera_calibration_values(){
     if(!fs.isOpened()){
         std::cout << "file: " << calibration_file_path << " doesn't exist, build and execute camera_calibration.cc as specified" << std::endl;
     }
-
+    /*
     cv::FileNode cm_data = fs["camera_matrix"]["data"];
     cv::FileNodeIterator it = cm_data.begin(), it_end = cm_data.end(); 
     std::vector<float> cm_data_store = {};
@@ -61,28 +64,20 @@ void camera_module::read_camera_calibration_values(){
         float to_add = *it;
         dm_data_store.push_back(to_add);
     }
-    cv::Mat distortion_matrix_temp = cv::Mat(DISTORTION_MATRIX_ROWS, dm_data_store.size(), CV_32F, dm_data_store.data());
+    cv::Mat distortion_matrix_temp = cv::Mat(dm_data_store.size(), DISTORTION_MATRIX_COLS, CV_32F, dm_data_store.data());
     camera_module::distortion_matrix = distortion_matrix_temp;
+    */
+    
+    fs["camera_matrix"] >> camera_module::camera_matrix;
+    fs["distortion_coefficients"] >> camera_module::distortion_matrix;
     
     fs.release();
 }
 
-void camera_module::calibrate_camera(){
-    camera_module::read_camera_calibration_values();
-}
-
-void camera_module::display_detected_markers(){
+void camera_module::detect_marker_corners_ids(){
     camera_module::inputVideo.read(camera_module::image);
     cv::aruco::detectMarkers(camera_module::image, dictionary, camera_module::marker_corners, camera_module::marker_ids);
-    cv::aruco::drawDetectedMarkers(camera_module::image, camera_module::marker_corners, camera_module::marker_ids);
-    cv::imshow("out", camera_module::image);
-    cv::waitKey(30);
-}
-
-void camera_module::read_marker_corners(){
-    camera_module::inputVideo.read(camera_module::image);
-    cv::aruco::detectMarkers(camera_module::image, camera_module::dictionary, camera_module::marker_corners, camera_module::marker_ids);
-    if(TESTING){
+     if(MARKER_TESTING){
         int counter = 0;
         for(auto v : camera_module::marker_corners){
             std::cout << "at: " << counter << std::endl;
@@ -92,17 +87,57 @@ void camera_module::read_marker_corners(){
             counter++;
         }
     }
-}
-
-void camera_module::read_marker_ids(){
-    camera_module::inputVideo.read(camera_module::image);
-    cv::aruco::detectMarkers(camera_module::image, camera_module::dictionary, camera_module::marker_corners, camera_module::marker_ids);
-    if(TESTING){
-        for(auto id : marker_ids){
+    if(MARKER_TESTING){
+        for(auto id : camera_module::marker_ids){
             std::cout << id << std::endl;
         }
     }
 }
+
+void camera_module::detect_pose(){
+    cv::aruco::estimatePoseSingleMarkers(camera_module::marker_corners, 0.05, 
+                                         camera_module::camera_matrix, camera_module::distortion_matrix, 
+                                         camera_module::rotation_vector, camera_module::translation_vector);
+    if(POSE_TESTING){
+        for(auto v: camera_module::rotation_vector){
+            std::cout << v << std::endl;
+        }
+        for(auto v: camera_module::translation_vector){
+            std::cout << v << std::endl;
+        }
+    }   
+}
+
+void camera_module::display_detected_markers(){
+    cv::aruco::drawDetectedMarkers(camera_module::image, camera_module::marker_corners, camera_module::marker_ids);
+    cv::imshow("out", camera_module::image);
+    cv::waitKey(30);
+}
+
+void camera_module::display_pose_extraction(){
+    cv::Mat imageCopy;
+    camera_module::image.copyTo(imageCopy);
+    cv::aruco::drawDetectedMarkers(imageCopy, camera_module::marker_corners, camera_module::marker_ids);
+    camera_module::detect_pose();
+    if(POSE_TESTING){
+        for(auto v: camera_module::rotation_vector){
+            std::cout << v << std::endl;
+        }
+        for(auto v: camera_module::translation_vector){
+            std::cout << v << std::endl;
+        }
+    }   
+    for(int i=0; i < get_marker_ids_size(); i++){
+        cv::aruco::drawAxis(imageCopy, 
+                            camera_module::camera_matrix, camera_module::distortion_matrix, 
+                            camera_module::rotation_vector[i], camera_module::translation_vector[i], 
+                            0.1);
+    }
+    cv::imshow("out", imageCopy);
+    cv::waitKey(30);
+
+}
+
 
 int camera_module::get_marker_corners_size(){
     return camera_module::marker_corners.size();
