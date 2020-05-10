@@ -1,0 +1,6 @@
+cmake_minimum_required(VERSION 2.8)
+project( samsara )
+find_package( OpenCV REQUIRED )
+include_directories( ${OpenCV_INCLUDE_DIRS} )
+add_executable( samsara main.cc mouse_module.cc camera_module.cc virtual_mouse.cc)
+target_link_libraries( samsara ${OpenCV_LIBS} -lX11 -lXtst)
